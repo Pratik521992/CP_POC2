@@ -21,6 +21,23 @@ function dropItem(ev) {
 
     var el = document.createElement('div');
     el.className = 'element';
+    var el_span = document.createElement('span');
+    var el_span2 = document.createElement('span');
+    el_span.className = 'el_span';
+    el_span2.className = 'el_span2';
+    var text = document.createTextNode("Tag Name");
+    el_span.appendChild(text);
+    var el_del = document.createElement('del');
+    el_del.className = "glyphicon glyphicon-remove";
+    var el_drag = document.createElement('drag');
+    el_drag.className = 'glyphicon glyphicon-fullscreen';
+    
+  
+    el.appendChild(el_span);
+    
+    el_span2.appendChild(el_drag);
+    el_span2.appendChild(el_del);
+    el.appendChild(el_span2);
 
     ev.target.appendChild(el);
 }
