@@ -1,4 +1,5 @@
 
+let dragingElement = null;
 function allowDroponCanvas(ev) {
     ev.preventDefault();
 }
@@ -10,6 +11,7 @@ function allowDroponElement(ev) {
 function dragItem(ev) {
     //ev.preventDefault();
     ev.dataTransfer.setData("text", ev.target.id);
+    dragingElement = ev.target.innerHTML;
 }
 
 function dragElement(ev) {
@@ -27,7 +29,7 @@ function dropItem(ev) {
     //console.log();
     // var el = document.createElement('div');
     // el.className = 'element';
-    
+   
 
     if (dragObj.classList.contains('element')) {
         ev.target.appendChild(document.getElementById(data));
@@ -45,20 +47,16 @@ function dropItem(ev) {
         var el_span2 = document.createElement('span');
         el_span.className = 'el_span';
         el_span2.className = 'el_span2';
-        var text = document.createTextNode("Tag Name");
+        var text = document.createTextNode(dragingElement);
         el_span.appendChild(text);
         var el_del = document.createElement('del');
         el_del.className = "glyphicon glyphicon-remove";
         var el_drag = document.createElement('drag');
         el_drag.className = 'glyphicon glyphicon-move';
-
-
         el.appendChild(el_span);
-
         el_span2.appendChild(el_drag);
         el_span2.appendChild(el_del);
         el.appendChild(el_span2);
-
         ev.target.appendChild(el);
     }
 
