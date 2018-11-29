@@ -23,7 +23,8 @@ div#canvas { background: #efefef; height: calc( 100% - 40px ); margin: 20px; ove
 
 
 div.element { border: solid 1px #999; border-radius: 4px; min-height: 80px; margin: 10px 0; padding: 20px; position: relative; overflow: hidden;}
-
+div.el_conditions { border: solid 1px #999; border-radius: 4px; min-height: 25px; margin: 10px 0; padding: 20px; position: relative; overflow: hidden; }
 .el_span {  border-bottom-right-radius: 4px; background-color: #3E5260;color: #e1e1e1; position: absolute; margin-bottom: 10px; padding: 5px; top: 0; left: 0; min-width: 70px; font-size: 10px; height: 25px}
 .glyphicon { float: right; width: 10px; height: 10px; display: flex}
 .el_span2 { float:  right; display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;background-color: #3E5260;color: #e1e1e1;  position: absolute; margin-bottom: 10px; padding: 5px; top: 0; right: 0; width: 50px; font-size: 10px; height: 25px; border-bottom-left-radius: 4px;}
+.el_select { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 30px; margin-top: 20px;}
