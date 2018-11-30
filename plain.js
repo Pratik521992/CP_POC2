@@ -15,6 +15,8 @@ function dragItem(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
    
     dragingElement = ev.target.id;
+    console.log(dragingElement)
+   
 }
 
 function dragElement(ev) {
@@ -35,6 +37,14 @@ function dropItem(ev) {
         ev.target.appendChild(document.getElementById(data));
     }
     else if (dragingElement === 'conditions') {
+        condition(ev);
+      
+     }
+     else if (dragingElement === 'for_event') {
+        forEvent(ev);
+      
+     }
+     else if (dragingElement === 'tactic_content') {
         condition(ev);
       
      }

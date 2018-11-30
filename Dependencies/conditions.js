@@ -17,38 +17,10 @@ function condition(ev) {
     el_span.appendChild(text);
     el_select.appendChild(el_span);
 
-    var sel = document.createElement('select');
-    sel.name = 'drop1';
-    sel.id = 'Select1';
-    sel.className = 'form-control'
-
-    var inputs = ["a.tacticId", "a.times", "p.professionId", "p.country", "p.specialityId", "p.occupationId", "a.leadspec", "a.within", "a.channel", "a.activityName", "a.exp"];
-
-    var options_str = "";
-
-    inputs.forEach(function (inputs) {
-        options_str += '<option value="' + inputs + '">' + inputs + '</option>';
-    });
-
-    sel.innerHTML = options_str;
+    var sel = dropdown("condition_main");
     el_select.appendChild(sel);
-
-    var sel2 = document.createElement('select');
-    sel2.name = 'drop2';
-    sel2.id = 'Select2';
-    sel2.className = 'form-control';
-
-    var inputs2 = ['=', '!=', '>', '<', ':'];
-
-    var options_str2 = "";
-
-    inputs2.forEach(function (inputs2) {
-        options_str2 += '<option value="' + inputs2 + '">' + inputs2 + '</option>';
-    });
-
-    sel2.innerHTML = options_str2;
+    var sel2 = dropdown("condition_operator");
     el_select.appendChild(sel2);
-
 
     var label, textbox;
     label = document.createElement('label');

@@ -41,7 +41,7 @@
                 <h2>ACTION</h2>
                 <ul>
                     <li ondragstart="dragItem(event)" draggable="true" id="tactic" type="rule_action" sub-type="event" default-value="">Tactic</li>
-                    <li ondragstart="dragItem(event)" draggable="true" id="random_tactic" type="rule_action" sub-type="event" default-value="">Random Tactic</li>
+                    <li ondragstart="dragItem(event)" draggable="true" id="tactic_content" type="rule_action" sub-type="event" default-value="">Tactic content</li>
                     
                 </ul>
                 <h2>OTHERS</h2>
@@ -69,7 +69,9 @@
     <div style="width:60%; margin:auto; text-align:right; padding: 5px 20px; box-sizing:border-box;"><button onclick="doCopy('output')">Copy</button> <button onclick="doClose('overlay')">Close</button></div>
 </div>
 <script src="plain.js"></script>
-<script type="text/javascript" src="./conditions.js"></script>
-<script type="text/javascript" src="./alldragElemets.js"></script>
+<script type="text/javascript" src="./Dependencies/conditions.js"></script>
+<script type="text/javascript" src="./Dependencies/alldragElemets.js"></script>
+<script type="text/javascript" src="./Dependencies/ForEvent.js"></script>
+<script type="text/javascript" src="./Dependencies/Dropdown.js"></script>
 </body>
 </html>
