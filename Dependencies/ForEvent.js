@@ -21,9 +21,13 @@ function forEvent(ev) {
     el_select.appendChild(sel);
     var text = document.createTextNode(dragingElement);
     el_span.appendChild(text);
-    var el_del = document.createElement('del');
+    var el_del = document.createElement('a');
+    el_del.href = "#";
     el_del.className = "glyphicon glyphicon-remove";
-    var el_drag = document.createElement('drag');
+    el_del.addEventListener("click", function(){
+        doClose(el);
+    });
+    var el_drag = document.createElement('a');
     el_drag.className = 'glyphicon glyphicon-move';
     el.appendChild(el_span);
     el_span2.appendChild(el_drag);

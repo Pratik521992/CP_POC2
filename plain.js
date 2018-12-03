@@ -15,7 +15,8 @@ function dragItem(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
    
     dragingElement = ev.target.id;
-    console.log(dragingElement)
+    
+    
    
 }
 
@@ -71,7 +72,10 @@ function doCopy(id){
 }
 
 function doClose(id){
-    document.getElementById(id).style.display = 'none';
+   
+    id.style.display = 'none';
+    
+    
 }
 
 function doShow(id){

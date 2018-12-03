@@ -1,8 +1,5 @@
 
 function dropdown(type){
-    console.log(type);
-    
-
     var sel = document.createElement('select');
     sel.name = 'dropfor';
     sel.id = 'Selectfor';
