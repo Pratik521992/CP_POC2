@@ -23,12 +23,14 @@ function forEvent(ev) {
     el_span.appendChild(text);
     var el_del = document.createElement('a');
     el_del.href = "#";
-    el_del.className = "glyphicon glyphicon-remove";
+    el_del.className = "far fa-trash-alt ";
+    el_del.style = "color:white";
     el_del.addEventListener("click", function(){
         doClose(el);
     });
     var el_drag = document.createElement('a');
     el_drag.className = 'glyphicon glyphicon-move';
+    el_drag.style = "color:white";
     el.appendChild(el_span);
     el_span2.appendChild(el_drag);
     el_span2.appendChild(el_del);

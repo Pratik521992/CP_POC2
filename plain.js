@@ -73,7 +73,14 @@ function doCopy(id){
 
 function doClose(id){
    
-    id.style.display = 'none';
+    //id.style.display = 'none';
+    id.remove();
+    
+    
+}
+function doCloseOutput(id){
+   
+    document.getElementById(id).style.display = 'none';
     
     
 }
