@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     
 </head>
 <body>
@@ -16,7 +17,7 @@
     <table id="main" cellpadding="0" cellspacing="0" border="0">
         <tr class="header">
             <td style="width: 250px; padding-left:1em;"><h1>CP <em style="font-family:'Times New Roman', Times, serif;">Rules</em></h1></td>
-            <td style="width: calc( 100% - 350px ); text-align:right;padding-right: 1em;"><button class="genscript" onclick="genscript()">Generate Script</button></td>
+            <td style="width: calc( 100% - 350px ); text-align:right;padding-right: 1em;"><button type="button" class="btn btn-info btn-lg" data-toggle="modal"  onclick="genscript()">Generate</button></td>
         </tr>
         <tr>
             <td class="left-block">
@@ -41,7 +42,7 @@
                 <h2>ACTION</h2>
                 <ul>
                     <li ondragstart="dragItem(event)" draggable="true" id="tactic" type="rule_action" sub-type="event" default-value="">Tactic</li>
-                    <li ondragstart="dragItem(event)" draggable="true" id="random_tactic" type="rule_action" sub-type="event" default-value="">Random Tactic</li>
+                    <li ondragstart="dragItem(event)" draggable="true" id="tactic_content" type="rule_action" sub-type="event" default-value="">Tactic content</li>
                     
                 </ul>
                 <h2>OTHERS</h2>
@@ -53,21 +54,50 @@
                 </ul>
             </td>
             <td class="right-block" style="height: 100%;">
-                <div id="canvas" ondrop="dropItem(event)" ondragover="allowDroponCanvas(event)">
-
-                </div>
+                <div id="canvas" ondrop="dropItem(event)" ondragover="allowDroponCanvas(event)"></div>
             </td>
         </tr>
     </table>
+   
+
 <div id="overlay">
     <pre>
         <textarea id="output" readonly></textarea>
         
     </pre>
-    <div style="width:60%; margin:auto; text-align:right; padding: 5px 20px; box-sizing:border-box;"><button onclick="doCopy('output')">Copy</button> <button onclick="doClose('overlay')">Close</button></div>
+    <div style="width:60%; margin:auto; text-align:right; padding: 5px 20px; box-sizing:border-box;"><button onclick="doCopy('copy')">click</button> <button onclick="doCloseOutput('overlay')">Close</button></div>
 </div>
+<<<<<<< HEAD
+=======
+<script type="text/javascript" src="./backend/app.js"></script>
+>>>>>>> b35caf68bcbba29973c24620c05d01ddd7c2e9f6
 <script src="htmlparser.js"></script>
 <script src="html2json.js"></script>
 <script src="plain.js"></script>
+<script type="text/javascript" src="./Dependencies/conditions.js"></script>
+<script type="text/javascript" src="./Dependencies/alldragElemets.js"></script>
+<script type="text/javascript" src="./Dependencies/ForEvent.js"></script>
+<script type="text/javascript" src="./Dependencies/Dropdown.js"></script>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onclick="delnodes()" >&times;</button>
+          <h4 class="modal-title">Output</h4>
+        </div>
+        <div class="modal-body" id="forOutput"> </div>
+       
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="delnodes()" data-dismiss="modal">Close</button>
+          <button type="button" id="download" class="btn btn-success" onclick="log()" >Import</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>

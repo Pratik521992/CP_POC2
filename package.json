@@ -4,21 +4,23 @@
   "description": "",
   "main": "plain.js",
   "dependencies": {
-    "gh-pages": "^2.0.1"
+    "express": "^4.16.4",
+    "file-system": "^2.2.2",
+    "gh-pages": "^2.0.1",
+    "jsdom": "^13.0.0"
   },
   "devDependencies": {},
   "scripts": {
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://pratik521992.guthub.io/CPrules",
+  "homepage": "http://pratik521992.guthub.io/cp_poc_03",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pratik521992/CP_POC2.git"
+    "url": "git+https://github.com/Pratik521992/cp_poc_03.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Pratik521992/CP_POC2/issues"
   }
- 
 }
