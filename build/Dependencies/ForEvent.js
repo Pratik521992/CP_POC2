@@ -3,6 +3,8 @@ function forEvent(ev) {
     var el = document.createElement('div');
     el.className = 'element';
     el.setAttribute('id', uniqueId());
+    
+    el.setAttribute('codename', dragingElement);
     el.setAttribute('ondragstart', "dragElement(event)");
     el.setAttribute('draggable', "true");
     el.setAttribute('dropElement', "true");
@@ -35,6 +37,7 @@ function forEvent(ev) {
     el_span2.appendChild(el_drag);
     el_span2.appendChild(el_del);
     el.appendChild(el_span2);
+   
     el.appendChild(el_select);
     ev.target.appendChild(el);
 }

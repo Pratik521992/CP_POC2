@@ -46,5 +46,6 @@ function condition(ev) {
     el_span2.appendChild(el_del);
     el.appendChild(el_span2);
     el.appendChild(el_select);
+    
     ev.target.appendChild(el);
 }

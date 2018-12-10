@@ -86,9 +86,34 @@ function doShow(id) {
     document.getElementById(id).style.display = 'block';
 }
 
-function genscript() {
-    doShow('overlay');
+function genscript(){
+    initElement = document.getElementById('canvas').innerHTML;
+    json = html2json(initElement);
+    console.log(json);
+    //doShow('overlay');
 }
+
+var regParam = /(#)(param)(#)/g;
+var regChild = /(#)(param)(#)/g;
+
+var template = new Array();
+template['for_event'] = 'forEvent( #params# ) { #children# }';
+template['in_session_event'] = 'inSessionEvent( #params# ) { #children# }';
+template['no_event'] = '{ #children# }';
+
+var codeString = "";
+
+function getCodeString(json){
+    
+    if( typeof json == 'object'){
+        for( var key in json ){
+            getCodeString(json[key]);
+        }
+    }
+
+    return codeString;
+}
+
 function delnodes() {
     console.log('removing..')
     let element = document.getElementById("forOutput");
