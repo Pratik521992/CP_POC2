@@ -22,6 +22,7 @@ function forEvent(ev) {
 
     
     var text = document.createTextNode(dragingElement);
+    text.className = "textclass";
     el_span.appendChild(text);
     el_span.appendChild(sel);
     var el_del = document.createElement('a');

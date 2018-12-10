@@ -3,7 +3,7 @@ function dropdown(type){
     var sel = document.createElement('select');
     sel.name = 'dropfor';
     sel.id = 'Selectfor';
-    sel.className = 'form-control';
+    sel.className = 'sel_params';
 
     
     var inputs = null;
