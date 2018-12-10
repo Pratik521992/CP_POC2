@@ -89,26 +89,75 @@ function doShow(id) {
 function genscript(){
     initElement = document.getElementById('canvas').innerHTML;
     json = html2json(initElement);
-    console.log(json);
+    //console.log(json.child[0]);
     //doShow('overlay');
+    var rawString = getCodeString(json.child);
 }
 
 var regParam = /(#)(param)(#)/g;
-var regChild = /(#)(param)(#)/g;
+var regChild = /(#)(children)(#)/g;
 
 var template = new Array();
 template['for_event'] = 'forEvent( #params# ) { #children# }';
-template['in_session_event'] = 'inSessionEvent( #params# ) { #children# }';
+template['campaign'] = 'campaign( #params# ) { #children# }';
 template['no_event'] = '{ #children# }';
 
-var codeString = "";
+template['any_of'] = 'anyof { #children# }';
+template['all_of'] = 'allof { #children# }';
 
-function getCodeString(json){
-    
-    if( typeof json == 'object'){
-        for( var key in json ){
-            getCodeString(json[key]);
+template['tactic'] = 'actions { #children# }';
+template['tactic_content'] = 'actions( #params# ) { #children# }';
+template['conditions'] = 'conditions( #params# ) { #children# }';
+
+template['when'] = 'when { #children# }';
+template['if'] = 'if { #children# }';
+template['else'] = 'else { #children# }';
+
+
+var codeString = "";
+var parentString = "";
+var childString = "";
+
+function getCodeString(obj){
+    //console.log('working');
+    for (var key in obj) {
+        
+        if (obj[key].attr != undefined && obj[key].attr.class == 'element'){
+
+            var templateLabel = obj[key].attr.codename;
+            var curTemplate = template[templateLabel];
+
+            console.log(curTemplate);
+
+            if (parentString == '' ){
+                parentString = curTemplate;
+            }
+            else {
+                parentString = parentString.replace('#children#', curTemplate); 
+                console.log(parentString);
+            }
+
+            var child = obj[key].child;
+            getCodeString(child);
+
+            // for( var key in child ){
+            //     console.log(child[key].attr.codename);
+            //     getCodeString(child[key]);
+            //     // if(child[key].attr != undefined && child[key].attr.class == 'element'){
+            //     //     console.log('child, ', child[key]);
+            //     //     getCodeString(child[key]);
+
+            //     // }
+                
+            // }
+            // if (obj.hasOwnProperty(key)) {
+            //     var val = obj[key];
+            //     getCodeString(val);
+            // }
+
         }
+        
+        
     }
 
     return codeString;
