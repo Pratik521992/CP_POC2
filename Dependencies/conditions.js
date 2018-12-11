@@ -1,6 +1,8 @@
 function condition(ev) {
     var el = document.createElement('div');
+   
     el.className = 'el_conditions';
+    el.classList.add('element');
     el.setAttribute('id', uniqueId());
     el.setAttribute('ondragstart', "dragElement(event)");
     el.setAttribute('draggable', "true");
