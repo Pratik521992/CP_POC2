@@ -118,6 +118,53 @@ var codeString = "";
 var parentString = "";
 var childString = "";
 
+
+function getParamString(params, templateLabel){
+
+    var str = '';
+
+    switch (templateLabel) {
+        case 'for_event':
+                str = "'" + params.child[1].attr.value + "'";
+            break;
+        
+        case 'campaign':
+            break;
+
+        case 'no_event':
+            break;
+
+        case 'any_of':
+            break;
+
+
+        case 'all_of':
+            break;
+
+        case 'tactic':
+            break;
+
+        case 'tactic_content':
+            break;
+
+        case 'conditions':
+            break;
+
+        case 'when':
+            break;
+
+        case 'if':
+            break;
+
+        case 'else':
+            break;
+
+        default:
+            break;
+    }
+
+    return str;
+}
 function getCodeString(obj){
     //console.log('working');
     for (var key in obj) {
@@ -127,7 +174,15 @@ function getCodeString(obj){
             var templateLabel = obj[key].attr.codename;
             var curTemplate = template[templateLabel];
 
-            console.log(curTemplate);
+            if (obj[key].child[0] && obj[key].child[0].attr.class == 'el_span' ){
+                //Get parameter string
+                var paramSpan = obj[key].child[0];
+                var paramString = getParamString(paramSpan, templateLabel);
+                curTemplate = curTemplate.replace('#params#', paramString);
+            }
+            
+
+            //console.log(curTemplate);
 
             if (parentString == '' ){
                 parentString = curTemplate;
@@ -185,4 +240,9 @@ function log() {
 
 
 
-
+$(function(){
+    $('div#canvas').on("change", "select", function(){
+        var val = $(this).val();
+        $(this).attr('value', val);
+    });
+});
