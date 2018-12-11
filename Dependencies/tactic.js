@@ -1,10 +1,7 @@
-function forEvent(ev) {
-    
+function tactic(ev) {
     var el = document.createElement('div');
-    el.className = 'forelement';
+    el.className = 'el_conditions';
     el.setAttribute('id', uniqueId());
-    
-    el.setAttribute('codename', dragingElement);
     el.setAttribute('ondragstart', "dragElement(event)");
     el.setAttribute('draggable', "true");
     el.setAttribute('dropElement', "true");
@@ -13,33 +10,46 @@ function forEvent(ev) {
     var el_select = document.createElement('div');
     el_select.className = "el_select";
     var el_span = document.createElement('span');
+    el_span.className = 'el_span_condition';
     var el_span2 = document.createElement('span');
-    el_span.className = 'el_span';
     el_span2.className = 'el_span2';
-    var sel = dropdown("for");
-    
+    var text = document.createTextNode(dragingElement);
+    el_span.appendChild(text);
+    var sel1 = dropdown("tactic_value");
+    el_span.appendChild(sel1);
+    var sel = dropdown("condition_main");
+    el_span.appendChild(sel);
+    var sel2 = dropdown("condition_operator");
+    el_span.appendChild(sel2);
+    var label, textbox;
+    label = document.createElement('label');
+
+    textbox = document.createElement('input');
+    textbox.type = 'text';
+    textbox.className = '';
+    textbox.placeholder = "add value";
+    label.appendChild(textbox);
+    el_span.appendChild(label);
     el_select.appendChild(el_span);
 
-    
-    var text = document.createTextNode(dragingElement);
-    text.className = "textclass";
-    el_span.appendChild(text);
-    el_span.appendChild(sel);
+   
+
+   
     var el_del = document.createElement('a');
     el_del.href = "#";
     el_del.className = "far fa-trash-alt ";
     el_del.style = "color:white";
+   
     el_del.addEventListener("click", function(){
         doClose(el);
     });
     var el_drag = document.createElement('a');
     el_drag.className = 'glyphicon glyphicon-move';
     el_drag.style = "color:white";
-    el.appendChild(el_span);
     el_span2.appendChild(el_drag);
     el_span2.appendChild(el_del);
     el.appendChild(el_span2);
-   
     el.appendChild(el_select);
+    
     ev.target.appendChild(el);
 }

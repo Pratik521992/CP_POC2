@@ -10,27 +10,29 @@ function condition(ev) {
     var el_select = document.createElement('div');
     el_select.className = "el_select";
     var el_span = document.createElement('span');
-    el_span.className = 'el_span';
+    el_span.className = 'el_span_condition';
     var el_span2 = document.createElement('span');
     el_span2.className = 'el_span2';
     var text = document.createTextNode(dragingElement);
     el_span.appendChild(text);
-    el_select.appendChild(el_span);
-
     var sel = dropdown("condition_main");
-    el_select.appendChild(sel);
+    el_span.appendChild(sel);
     var sel2 = dropdown("condition_operator");
-    el_select.appendChild(sel2);
-
+    el_span.appendChild(sel2);
     var label, textbox;
     label = document.createElement('label');
-
     textbox = document.createElement('input');
+    textbox.className = '';
     textbox.type = 'text';
-    textbox.className = 'form-control';
+    
     textbox.placeholder = "add value";
     label.appendChild(textbox);
-    el_select.appendChild(label);
+    el_span.appendChild(label);
+    el_select.appendChild(el_span);
+
+    
+
+  
     var el_del = document.createElement('a');
     el_del.href = "#";
     el_del.className = "far fa-trash-alt ";

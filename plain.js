@@ -42,7 +42,7 @@ function dropItem(ev) {
 
     }
     else if (dragingElement === 'tactic_content') {
-        condition(ev);
+        tactic(ev);
 
     }
     else if (dragingElement != 'conditions') {
@@ -106,12 +106,12 @@ template['any_of'] = 'anyof { #children# }';
 template['all_of'] = 'allof { #children# }';
 
 template['tactic'] = 'actions { #children# }';
-template['tactic_content'] = 'actions( #params# ) { #children# }';
+template['tactic_content'] = '( #params# ) { #children# }';
 template['conditions'] = 'conditions( #params# ) { #children# }';
 
-template['when'] = 'when { #children# }';
-template['if'] = 'if { #children# }';
-template['else'] = 'else { #children# }';
+template['when'] = 'when { #params# }';
+template['if'] = 'if { #params# }';
+template['else'] = 'else { #params# }';
 
 
 var codeString = "";
