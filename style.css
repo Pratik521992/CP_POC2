@@ -21,5 +21,5 @@ div.el_conditions { border: solid 1px #999; border-radius: 4px; height: 5px; mar
 #overlay pre { background-color: rgba(94, 6, 6, 0.9);  width: 60%; height : 60%;  margin: 50px auto 0 auto;}
 #overlay textarea { color: #fff; background-color: transparent; border: none; resize: none;}
 .el_select { display: grid; margin-top: 20px; align-items: center;}
-.sel_params { color: inherit; border: none; background: transparent;  font-size: 13px; margin-bottom: 50px;}
+.sel_params { color: inherit; border: none; background: transparent;  font-size: 13px; margin-bottom: 3px;}
 .textclass {  color: rgb(226, 236, 243);  font-size: 13px; }
