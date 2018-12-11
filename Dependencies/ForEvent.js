@@ -1,7 +1,7 @@
 function forEvent(ev) {
     
     var el = document.createElement('div');
-    el.className = 'element';
+    el.className = 'forelement';
     el.setAttribute('id', uniqueId());
     
     el.setAttribute('codename', dragingElement);
