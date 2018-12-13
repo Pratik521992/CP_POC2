@@ -27,6 +27,7 @@ function allElements(ev){
         el.appendChild(el_span);
         el_span2.appendChild(el_drag);
         el_span2.appendChild(el_del);
+        el.setAttribute('codename', dragingElement);
         el.appendChild(el_span2);   
         ev.target.appendChild(el);
 }

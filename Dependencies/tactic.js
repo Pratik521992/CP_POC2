@@ -1,4 +1,4 @@
-function condition(ev) {
+function tactic(ev) {
     var el = document.createElement('div');
     el.className = 'el_conditions';
     el.classList.add('element');
@@ -7,7 +7,7 @@ function condition(ev) {
     el.setAttribute('draggable', "true");
     el.setAttribute('dropElement', "true");
     el.setAttribute('ondrop', 'dropElement(event)');
-    el.setAttribute('codename', 'conditions');
+    el.setAttribute('codename', 'tactic_content');
 
     var el_select = document.createElement('div');
     el_select.className = "el_select";
@@ -17,10 +17,11 @@ function condition(ev) {
     el_span2.className = 'el_span2';
     var text = document.createTextNode(dragingElement);
     el_span.appendChild(text);
-    
-    var sel = dropdown("condition_main");
+    var sel1 = dropdown("tactic_value");
+    el_span.appendChild(sel1);
+    var sel = dropdown("action");
     el_span.appendChild(sel);
-    var sel2 = dropdown("condition_operator");
+    var sel2 = dropdown("colon");
     el_span.appendChild(sel2);
     var label, textbox;
     label = document.createElement('label');
