@@ -8,6 +8,7 @@ function condition(ev) {
     el.setAttribute('draggable', "true");
     el.setAttribute('dropElement', "true");
     el.setAttribute('ondrop', 'dropElement(event)');
+    el.setAttribute('codename', 'conditions');
 
     var el_select = document.createElement('div');
     el_select.className = "el_select";
