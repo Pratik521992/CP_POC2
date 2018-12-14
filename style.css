@@ -20,8 +20,36 @@ div.el_conditions { border: solid 1px #999; border-radius: 4px; min-height: 3px 
 .glyphicon { float: right; width: 10px; height: 10px; display: flex}
 .el_span2 { float:  right; display: grid; grid-template-columns: 1fr 1fr; grid-gap: 20px;background-color: #3E5260;color: #e1e1e1;  position: absolute; margin-bottom: 10px; padding: 5px; top: 0; right: 0; min-width : 20px; font-size: 10px; height: 30px; border-bottom-left-radius: 4px;}
 #overlay { position: absolute; width: 100%; height: 100%; background-color: rgba(255, 255, 255, .7); top:0;  left: 0;    right: 0;  bottom: 0;  display: none;}
-#overlay pre { background-color: rgba(0, 0, 0, 0.9);  width: 60%; height : 80vh;  margin: 50px auto 0 auto;}
-#overlay textarea { color: #fff; background-color: transparent; border: none; resize: none; width: 80%; height:80%; line-height: .9;}
+#overlay pre {     background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 60vh;
+    /* margin: 50px auto 0 auto; */
+    border: none;
+    overflow: hidden; }
+#overlay textarea { color: #fff;
+    background-color: transparent;
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 80%;
+    line-height: .9;
+margin-left: 0;
+    float: left; }
+    #modal-wrap {
+        background-color: #333;
+    max-width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    border: solid 5px #8c8c8c;
+    text-align: right;
+    }
+    #modal-wrap button {
+        background-color: #333;
+    border: none;
+    color: #ffff;
+    font-size: 13px;
+    padding: .75em;
+    }
 .el_select { display: grid; margin-top: 20px; align-items: center;}
 .sel_params { border: none; background: #e1e1e1;  font-size: 13px; margin-bottom: 3px; color: #333; border-radius: 2px; max-width: 10em;; }
 .textclass {  color: rgb(226, 236, 243);  font-size: 13px; }
