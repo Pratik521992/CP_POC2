@@ -103,12 +103,12 @@ var regParam = /(#)(param)(#)/g;
 var regChild = /(#)(children)(#)/g;
 
 var template = new Array();
-template['for_event'] = 'forEvent( [#params#] ) \n\r{\n\r #children# }\n\r';
-template['campaign'] = 'campaign( [#params#] ) {\n\r #children# }\n\r';
+template['for_event'] = 'forEvent( [#params#] ) \n\r{\n\r#children#\n\r}\n\r';
+template['campaign'] = 'campaign( [#params#] ) {\n\r#children#\n\r}\n\r';
 template['no_event'] = '{ #children# }';
 
-template['any_of'] = 'anyof \n\r{\n\r #children# }\n\r';
-template['all_of'] = 'allof \n\r{\n\r #children# }\n\r';
+template['any_of'] = 'anyof \n\r{\n\r#children#\n\r}\n\r';
+template['all_of'] = 'allof \n\r{\n\r#children#\n\r}\n\r';
 
 template['tactic'] = 'actions { #children# }\n\r';
 template['tactic_content'] = 'actions { #params# }\n\r';
@@ -151,20 +151,20 @@ function getParamString(codename, params) {
         case 'tactic':
                 //str = 'assign tacticId: ' + $(params).find('input').val();
             var val2 = $(params).find('input').val();
-            val2 = isNaN(val2) ? ( '"' + val2 + '"' ) : val2;
+            val2 = isNaN(val2) ? ( "'" + val2 + "'" ) : val2;
             str = $(params).find('select').eq(0).val() + ' ' + $(params).find('select').eq(1).val() + ' ' + val2;
             break;
 
         case 'tactic_content':
             var val3 = $(params).find('input').val();
-            val3 = isNaN(val3) ? ('"' + val3 + '"') : val3;    
+            val3 = isNaN(val3) ? ("'" + val3 + "'") : val3;    
             str = $(params).find('select').eq(0).val() + ' ' + $(params).find('select').eq(1).val() + ' : ' + val3;
             break;
 
         case 'conditions':
             //console.log($(params).find('select'));
             var val4 = $(params).find('input').val();
-            val4 = isNaN(val4) ? ('"' + val4 + '"') : val4;    
+            val4 = isNaN(val4) ? ("'" + val4 + "'") : val4;    
             str = $(params).find('select').eq(0).val() + ' ' + $(params).find('select').eq(1).val() + ' ' + val4;
             break;
 
@@ -208,7 +208,14 @@ function getCodeString(obj){
             var codename2 = $(this).attr('codename');
             var params2 = $(this).children('span.el_span,div.el_select');
             var paramstring2 = getParamString(codename2, params2);
-            tpl2 += template[codename2].replace('#params#', paramstring2);
+            var template2 = template[codename2];
+            if (template2.indexOf('{\n\r') != -1){
+                template2 = template[codename2].replace(/}/g, '\t}');
+                template2 = template2.replace(/{/g, '\t{');
+            }
+            
+            tpl2 += '\t' + template2.replace('#params#', paramstring2);
+            
 
             //Process level 3 children
             var child3 = $(this).children('div.element');
@@ -218,9 +225,10 @@ function getCodeString(obj){
                 var params3 = $(this).children('span.el_span,div.el_select');
                 var paramstring3 = getParamString(codename3, params3);
 
-                tpl3 +=  template[codename3].replace('#params#', paramstring3);
+                tpl3 +=  '\t\t' + template[codename3].replace('#params#', paramstring3);
             });
             tpl2 =  tpl2.replace('#children#', tpl3);
+            
 
 
         });
@@ -380,5 +388,10 @@ $(function () {
     $('div#canvas').on("keyup", "input", function () {
         var val = $(this).val();
         $(this).attr('value', val);
+    });
+
+    $('.left-block h2').click(function(){
+        $(this).toggleClass('up');
+        $(this).next('ul').slideToggle('fast');
     });
 });
