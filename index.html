@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CP Rules: Script Generator</title>
+    <title>Scenario Builder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
  
     <table id="main" cellpadding="0" cellspacing="0" border="0">
         <tr class="header">
-            <td style="width: 250px; padding-left:1em;"><h1>Scenario<em style="font-family:'Times New Roman', Times, serif;">Builder</em></h1></td>
+            <td style="width: 350px; padding-left:1em;"><h1>Scenario<em style="font-family:'Times New Roman', Times, serif;"> Builder</em></h1></td>
             <td style="width: calc( 100% - 350px ); text-align:right;padding-right: 1em;"><button type="button" class="btn btn-info btn-lg" data-toggle="modal"  onclick="genscript()">Generate</button></td>
         </tr>
         <tr>
@@ -54,11 +54,19 @@
    
 
 <div id="overlay">
-    <pre>
-        <textarea id="output" readonly></textarea>
-        
-    </pre>
-    <div style="width:60%; margin:auto; text-align:right; padding: 5px 20px; box-sizing:border-box;"><button onclick="doCopy('copy')">click</button> <button onclick="doCloseOutput('overlay')">Close</button></div>
+    <div id="modal-wrap">
+        <div>
+            <div style="background-color: #666; padding: 5px;">
+                <button onclick="doCopy('copy')">Copy to Clipboard</button>
+                <button onclick="doCloseOutput('overlay')">Close</button>
+            </div>
+        </div>
+        <pre>
+                <textarea id="output" readonly></textarea>
+                
+            </pre>
+    </div>
+    
 </div>
 <script type="text/javascript" src="./backend/app.js"></script>
 <script src="htmlparser.js"></script>

@@ -63,7 +63,10 @@ var uniqueId = function () {
 
 function doCopy(id) {
 
-    getdata(document);
+    //getdata(document);
+    var copyText = document.getElementById("output");
+    copyText.select();
+    document.execCommand("copy");
 
 
 }
